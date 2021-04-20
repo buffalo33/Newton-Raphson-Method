@@ -15,5 +15,5 @@ Instructions
 * `make newton_raphson` : Computes three graphs using different parameters to test the Newton-Raphson algorithm with and without backtracking.
 * `make forces` : uses Newton_Raphson algorithm to obtain the 5 Lagrangian points of an object moving in the plane and subject to gravitational forces. It displays the results on a graph.
 * `make electrostatic` : Computes the electrostatic equilibrium of an electric charge system and computes the Energy of one charge according to its position. It displays the results on a graph.
-* `make bairstow` : Uses Bairstrow method to compute roots of polynomials that does not have only real roots. It displays a graph showing the result differences between our algorithm and the Python standard one, according to the polynomial's degree.
+* `make bairstow` : Uses Bairstrow method to compute roots of polynomials that do not have only real roots. It displays a graph showing the result differences between our algorithm and the Python standard one, according to the polynomial's degree.
 * `make all` : Executes all the previous commands.
