@@ -124,7 +124,7 @@ if __name__ == '__main__':
     N0 = 100
 
     #Ensemble de parametres pour dimension 2
-    #U1 = np.array([[14], [50.23]])
+    U1 = np.array([[14], [50.23]])
     N1 = 50
     eps1 = 1e-12
 
@@ -132,15 +132,41 @@ if __name__ == '__main__':
     #res_linear = Newton_Raphson(test_linear,j.Jacobian,U0,50,1e-4)
     #print(res_linear)
     
-    #res_poly_2 = Newton_Raphson(test_poly_2,j.Jacobian,U0,N0,eps0)
+    res_poly_2 = Newton_Raphson(test_poly_2,j.Jacobian,U0,N0,eps0)
     #print(res_poly_2)
-    #plt.plot(res_poly_2[-1],label='Without backtracking',color='r')
-    #plt.legend()
-    #plt.ylabel("||f(U)||")
-    #plt.xlabel("Number of Newton-Raphson method iterations")
-    #plt.yscale('log')
-    #plt.show()
+    plt.plot(res_poly_2[-1],label='Without backtracking',color='r')
+    plt.legend()
+    plt.ylabel("||f(U)||")
+    plt.xlabel("Number of Newton-Raphson method iterations")
+    plt.yscale('log')
+    plt.show()
 
+    print("--------------------test simple :------------")
+    sol = Newton_Raphson(test_dim_2,j.Jacobian,U1,N1,eps1)
+    #print(sol)
+    print("--------------------test avec back tracking :------------")
+    U1 = np.matrix([[4],[45]])
+    sol_back =  Newton_Raphson_back(test_dim_2,j.Jacobian,U1,N1,eps1)
+    #print(sol_back)
+    
+    plt.plot(sol[-1],label='Without backtracking',color='r')
+    plt.plot(sol_back[-1],label='With backtracking',color='b')
+    plt.legend()
+    plt.ylabel("||f(U)||")
+    plt.xlabel("Number of Newton-Raphson method iterations")
+    plt.yscale('log')
+    plt.show()
+
+    U1 = np.matrix([[600.],[45.]])
+    sol_back =  Newton_Raphson_back(test_dim_2,j.Jacobian,U1,N1,eps1)
+    plt.plot(sol_back[-1],label='With backtracking',color='b')
+    plt.legend()
+    plt.ylabel("||f(U)||")
+    plt.xlabel("Number of Newton-Raphson method iterations")
+    plt.yscale('log')
+    plt.show()
+
+    print("-----------------------------------------------------------------------------")
     
     #U1 = np.matrix([[4],[45]])
     #res_dim_2 = Newton_Raphson(test_dim_2,j.Jacobian,U1,N1,eps1)
@@ -158,28 +184,12 @@ if __name__ == '__main__':
     #res_poly_2_back = Newton_Raphson_back(test_poly_2,j.Jacobian,U0,50,1e-7)
     #print(res_poly_2_back)
     
-    U1 = np.matrix([[600.],[45.]])
+    #U1 = np.matrix([[600.],[45.]])
     #res_dim_2_back = Newton_Raphson_back(test_dim_2,j.Jacobian,U1,100,1e-7)
     #print(res_dim_2_back)
     
     #print("---------------------------------------------------------------------------------")
-    
-    #print("--------------------test simple :------------")
-    #sol = Newton_Raphson(test_dim_2,j.Jacobian,U1,N1,eps1)
-    #print(sol)
-    #print("--------------------test avec back tracking :------------")
-    #sol_back =  Newton_Raphson_back(test_dim_2,j.Jacobian,U1,N1,eps1)
-    #print(sol_back)
-    
-    #plt.plot(sol[-1],label='Without backtracking',color='r')
-    #plt.plot(sol_back[-1],label='With backtracking',color='b')
-    #plt.legend()
-    #plt.ylabel("||f(U)||")
-    #plt.xlabel("Number of Newton-Raphson method iterations")
-    #plt.yscale('log')
-    #plt.show()
 
-    #print("-----------------------------------------------------------------------------")
 
     #print("--------------------Comparaison sans et avec optimisation :------------")
     #start = t.time()
